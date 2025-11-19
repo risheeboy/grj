@@ -19,5 +19,13 @@ test {
 task codegen(type: JavaExec) {
     classpath = sourceSets.test.runtimeClasspath
     mainClass = 'com.microsoft.playwright.CLI'
+    // Default args
     args = ['codegen']
+    doFirst {
+        // --args overwrites the default args, so we need to ensure 'codegen' is still there
+        if (args.isEmpty() || args[0] != 'codegen') {
+            args = ['codegen'] + args
+        }
+        println "Executing Playwright CLI with args: ${args}"
+    }
 }
