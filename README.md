@@ -36,6 +36,13 @@ To run the Playwright tests:
 gradlew.bat test
 ```
 
+### Headed Mode
+To run the tests in headed mode (browser visible):
+
+```bash
+./gradlew test -Dheaded=true
+```
+
 ## Code Generation
 
 You can use Playwright's code generator to record user interactions and generate Java code.
